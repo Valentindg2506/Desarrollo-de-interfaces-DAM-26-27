@@ -1,17 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		      content="width=device-width, initial-scale=1.0">
+		<title>Inscripción</title>
+		<style>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Repaso JavaScript</title>
-</head>
+		    body {
+		        font-family: Arial, sans-serif;
 
-<body>
+		        max-width: 600px;
 
-    <h1>Repaso de JavaScript</h1>
+		        margin: 40px auto;
+		    }
+		    fieldset {
+		        margin-bottom: 20px;
 
-    <script src="script.js"></script>
+		        padding: 20px;
+		    }
+		    .campo {
+		        margin-bottom: 15px;
+		    }
+		    .campo > label {
+		        display: block;
 
-</body>
+		        margin-bottom: 5px;
+		    }
+		    textarea {
+		        width: 100%;
+		    }
+		    button {
+		        padding: 10px 20px;
+		    }
+
+		</style>
+	</head>
+	<body>
+		<h1>
+		    Inscripción al curso
+		</h1>
+		<form>
+		    <fieldset>
+		        <legend>
+		            Datos personales
+		        </legend>
+		        <div class="campo">
+		            <label for="nombre">
+		                Nombre
+		            </label>
+		            <input
+		                type="text"
+		                id="nombre"
+		                required
+		            >
+		        </div>
+				<div class="campo">
+		            <label for="edad">
+		                Edad
+		            </label>
+		            <input
+		                type="number"
+		                id="edad"
+		                min=1
+		            >
+		        </div>
+		        <div class="campo">
+		            <label for="correo">
+		                Correo electrónico
+		            </label>
+		            <input
+		                type="email"
+		                id="correo"
+		                required
+		            >
+		        </div>
+		    </fieldset>
+		    <fieldset>
+		        <legend>
+		            Matricula
+		        </legend>
+		        <label>
+		            <input
+		                type="radio"
+		                name="matricula"
+		                value="si"
+		            >
+		            Si
+		        </label>
+		        <label>
+		            <input
+		                type="radio"
+		                name="matricula"
+		                value="no"
+		            >
+		            No
+		        </label>
+		    </fieldset>
+		    <fieldset>
+		        <legend>
+		            Bloqueado
+		        </legend>
+		        <label>
+		            <input
+		                type="radio"
+		                name="bloqueado"
+		                value="si"
+		            >
+		            Si
+		        </label>
+		        <label>
+		            <input
+		                type="radio"
+		                name="bloqueado"
+		                value="no"
+		            >
+		            No
+		        </label>
+		    </fieldset>
+		    <fieldset>
+		        <legend>
+		            Curso
+		        </legend>
+		        <div class="campo">
+
+		            <label for="precio">
+		                Precio del curso
+		            </label>
+		            <input
+		                type="number"
+		                id="precio"
+		                required
+		                min=1
+		            >
+		        </div>
+				<div class="campo">
+
+		            <label for="descuento">
+		                Descuento
+		            </label>
+		            <input
+		                type="number"
+		                id="descuento"
+		                min=1
+		            >
+		        </div>
+		        <div class="campo">
+		            <label for="nota">
+		                Nota
+		            </label>
+		            <input
+		                type="number"
+		                id="nota"
+		                required
+		            >
+		        </div>
+		        <div class="campo">
+		            <label for="modalidad">
+		                Modalidad
+		            </label>
+		            <select id="modalidad">
+		                <option value="presencial">
+		                    Presencial
+		                </option>
+		                <option value="semipresencial">
+		                    Semi-presencial
+		                </option>
+		                <option value="online">
+		                    Online
+		                </option>
+		            </select>
+		        </div>
+		    </fieldset>
+		    <button type="button" onclick="procesarFormulario()">
+		        Enviar inscripción
+		    </button>
+		</form>
+		<h2>
+		    Resultado
+		</h2>
+
+		<p id="resultado"></p>
+	</body>
+	<script>
+		function calcularPrecioFinal(precio, descuento, modalidad) {
+			if (modalidad == "semipresencial") {
+				descuento = descuento + 10;
+			}
+			
+			if (modalidad == "presencial") {
+				descuento = descuento;
+			}
+			if (modalidad =="online"){
+				descuento = descuento + 20;
+			}
+			
+			let cantidadDescuento = precio * descuento / 100;
+			
+			let precioFinal = precio - cantidadDescuento;
+			
+			return precioFinal;
+		}
+		function puedeAcceder(edad, tieneMatricula, bloqueado) {
+			if (edad >= 18 && tieneMatricula == true && bloqueado == false) {
+				return "Puede acceder";
+			} else {
+				return "No puede acceder";
+			}
+		}
+		function obtenerCalificacion(nota) {
+			if (nota < 0 || nota > 10) {
+				return "Nota no válida";
+			}
+			if (nota < 5) {
+				return "Suspenso";
+			}
+			if (nota < 6) {
+				return "Aprobado";
+			}
+			if (nota < 7) {
+				return "Bien";
+			}
+			if (nota < 9) {
+				return "Notable";
+			}
+			if (nota <= 10) {
+				return "Sobresaliente";
+			}
+		}
+		function procesarFormulario() {
+			let nombre = document.querySelector("#nombre").value;
+			let edad = parseInt(document.querySelector("#edad").value);
+			let correo = document.querySelector("#correo").value;
+			let matricula = document.querySelector('input[name="matricula"]:checked').value;
+			let bloqueadoFormulario = document.querySelector('input[name="bloqueado"]:checked').value;
+			let precio = parseFloat(document.querySelector("#precio").value);
+			let descuento = parseFloat(document.querySelector("#descuento").value);
+			let nota = parseFloat(document.querySelector("#nota").value);
+			let modalidad = document.querySelector("#modalidad").value;
+			let tieneMatricula = false;
+			if (matricula == "si") {
+				tieneMatricula = true;
+			}
+			let bloqueado = false;
+			if (bloqueadoFormulario == "si") {
+				bloqueado = true;
+			}
+			let precioFinal = calcularPrecioFinal(precio, descuento, modalidad);
+			let acceso = puedeAcceder(edad, tieneMatricula, bloqueado);
+			let calificacion = obtenerCalificacion(nota);
+			let mensaje = "";
+			mensaje += "Nombre: " + nombre + "<br>";
+			mensaje += "Edad: " + edad + "<br>";
+			mensaje += "Correo: " + correo + "<br>";
+			mensaje += "Matriculado: " + matricula + "<br>";
+			mensaje += "Bloqueado: " + bloqueadoFormulario + "<br>";
+			mensaje += "Precio del curso: " + precio + " €<br>";
+			mensaje += "Descuento: " + descuento + "%<br>";
+			mensaje += "Modalidad: " + modalidad + "<br>";
+			mensaje += "Precio final: " + precioFinal + " €<br>";
+			mensaje += "Nota: " + nota + "<br>";
+			mensaje += "Calificación: " + calificacion + "<br>";
+			mensaje += "Acceso: " + acceso;
+			document.querySelector("#resultado").innerHTML = mensaje;
+		}
+	</script>
 
 </html>
