@@ -1,64 +1,31 @@
-# 🎨 Desarrollo de Interfaces
+# Desarrollo de Interfaces · DAM 26/27
 
-Repositorio con mis **notas, apuntes y ejercicios de clase** de la asignatura **Desarrollo de Interfaces** de 2º de DAM.
+Apuntes, ejercicios y prácticas de la asignatura **Desarrollo de Interfaces** de 2.º de Desarrollo de Aplicaciones Multiplataforma (DAM), curso 2026/2027.
 
----
+## De qué trata la asignatura
 
-## 📖 Contenido
+Desarrollo de Interfaces se ocupa de la parte de una aplicación que ve y usa la persona: cómo se genera una interfaz, cómo se diseña para que sea clara y usable, cómo se crean componentes visuales reutilizables y cómo se completa el ciclo de una aplicación con informes, documentación, distribución y pruebas.
 
-En este repositorio voy a ir guardando todo lo relacionado con la asignatura:
+## Qué hay en el repositorio
 
-* 📝 Apuntes de clase
-* 💻 Ejercicios y prácticas
-* 🎨 Diseño y desarrollo de interfaces
-* 🖥️ Aplicaciones gráficas
-* 📱 Interfaces para aplicaciones
-* 📊 Trabajos realizados
-* 📑 Documentación complementaria
+| Carpeta | Contenido |
+|---|---|
+| `001-Generación de interfaces de usuario` | Herramientas y lenguajes para construir interfaces. |
+| `002-Generación de interfaces naturales de usuario` | Interfaces basadas en voz, gestos y otros modos de interacción natural. |
+| `003-Creación de componentes visuales` | Componentes propios, reutilizables y configurables. |
+| `004-Diseño de interfaces gráficas` | Usabilidad, accesibilidad y criterios de diseño. |
+| `005-Creación de informes` | Generación de informes a partir de los datos de una aplicación. |
+| `006-Documentación de aplicaciones` | Documentación técnica y de usuario. |
+| `007-Distribución de aplicaciones` | Empaquetado e instaladores. |
+| `008-Realización de pruebas` | Tipos de pruebas aplicadas a la interfaz. |
 
----
+Todo está dentro de `Clases/`, con una introducción general y las notas de cada sesión.
 
-## 📂 Estructura
+## Para qué sirve
 
-```text
-Desarrollo-Interfaces/
-│
-├── Apuntes/
-│   ├── Tema-1/
-│   ├── Tema-2/
-│   └── ...
-│
-├── Ejercicios/
-│
-├── Trabajos/
-│
-└── README.md
-```
+Es mi material de estudio de la asignatura: lo visto en clase, ordenado por unidades y en un único sitio para repasar durante el curso.
 
-La estructura puede ir cambiando a medida que avance el curso.
+## Autor
 
----
-
-## 🎯 Objetivo
-
-El objetivo de este repositorio es tener todos mis apuntes y ejercicios de **Desarrollo de Interfaces** organizados en un único lugar y poder consultarlos fácilmente durante el curso.
-
-También sirve como respaldo de todo el trabajo realizado en clase.
-
----
-
-## 🛠️ Herramientas
-
-* Git
-* GitHub
-* Markdown
-* Herramientas utilizadas durante la asignatura
-
----
-
-## 👨‍💻 Autor
-
-**Valentín**
-
-Estudiante de **2º DAM**.
-
+**Valentín Antonio De Gennaro** · Estudiante de 2.º de DAM en Valencia
+[valentindg.com](https://valentindg.com) · [Portafolio](https://portafolio.valentindg.com) · [LinkedIn](https://www.linkedin.com/in/valentindg)
